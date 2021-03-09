@@ -17,10 +17,6 @@ app.set("view engine", "handlebars");
 
 app.use(routes);
 
-app.listen(PORT, (err) => {
-    if (err) {
-        console.log(err)
-        return
-    }
+app.listen(PORT, () => {
     console.log(`SERVER LIVE : http://localhost:${PORT}`)
 })

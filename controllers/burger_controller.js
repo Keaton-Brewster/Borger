@@ -2,10 +2,10 @@ const express = require('express');
 
 const route = express.Router();
 
-const borger = require('../models/borger_model')
+const burger = require('../models/burger_model')
 
 route.get('/', (req, res) => {
-    borger.allBurgers((burgers) => {
+    burger.allBurgers((burgers) => {
         const data = {
             burgers: burgers
         }
@@ -16,7 +16,7 @@ route.get('/', (req, res) => {
 route.put('/api/consume/:id', (req, res) => {
     let id = req.params.id;
 
-    borger.updateBurger({
+    burger.updateBurger({
         consumed: true
     }, id, (result) => {
         if (result.affectedRows === 0) {
@@ -29,7 +29,7 @@ route.put('/api/consume/:id', (req, res) => {
 route.post('/api/add-borger', (req, res) => {
     let borgerName = req.body.borger;
 
-    borger.addBurger(borgerName, (result) => {
+    burger.addBurger(borgerName, (result) => {
         if (result.affectedRows === 0) {
             res.status(500).end();
         }

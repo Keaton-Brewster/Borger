@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    const addBorgerButton = document.getElementById('add-borger');
+    const addBurgerButton = document.getElementById('add-burger');
 
-    addBorgerButton.addEventListener('click', (e) => {
+    addBurgerButton.addEventListener('click', (e) => {
         e.preventDefault();
 
-        const borgerName = document.getElementById('borger-to-add').value.trim();
+        const burgerName = document.getElementById('burger-to-add').value.trim();
 
         fetch(`/api/add-borger`, {
             method: 'POST',
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                borger: borgerName
+                borger: burgerName
             })
         }).then(() => {
             location.reload();

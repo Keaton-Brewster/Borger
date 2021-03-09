@@ -1,8 +1,8 @@
-<h1>Burgers</h1>
+<h1 class="text-center">Consume thine Burgers</h1>
 
-<div class="row">
-    <div class="col-6">
-        <h2>Burgers that have not been eaten</h2>
+<div class="row p-5">
+    <div class="col-6 px-5">
+        <h3>Burgers to consume</h3>
 
         <ul>
             {{#each burgers}}
@@ -13,8 +13,8 @@
         </ul>
     </div>
 
-    <div class="col-6">
-        <h2>Burgers that have been eaten</h2>
+    <div class="col-6 px-5">
+        <h3>Burgers that have been consumed</h3>
 
         <ul>
             {{#each burgers}}
@@ -26,12 +26,12 @@
     </div>
 </div>
 
-<div>
-    <h2>Add b u r g e r</h2>
+<div class="text-center">
+    <h3>o f f e r b u r g e r</h3>
     <form id="create-form">
         <div class="form-group">
-            <textarea id="borger-to-add" cols="20" rows="1"></textarea>
+            <textarea id="burger-to-add" cols="30" rows="2" placeholder="offer your sacrifice here"></textarea>
         </div>
-        <button type="submit" id="add-borger">Add</button>
+        <button type="submit" id="add-burger" class="btn btn-sm btn-danger">Add</button>
     </form>
 </div>

@@ -9,7 +9,7 @@ const objToSql = (ob) => {
         // Check to skip hidden properties
         if (Object.hasOwnProperty.call(ob, key)) {
             // If string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
-            if (typeof value === 'string' && value.indexOf(' ') >= 0) {
+            if (typeof value === 'string') {
                 value = `'${value}'`;
             }
             // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]

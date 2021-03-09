@@ -1,3 +1,26 @@
 const express = require('express');
+const exphbs = require("express-handlebars");
+const routes = require('./controllers/borgerController');
+const app = express();
 
-const route = express.Router();
+const PORT = process.env.PORT || 8080;
+
+app.use(express.static("public"));
+app.use(express.urlencoded({
+    extended: true
+}));
+app.use(express.json());
+app.engine("handlebars", exphbs({
+    defaultLayout: "main"
+}));
+app.set("view engine", "handlebars");
+
+app.use(routes);
+
+app.listen(PORT, (err) => {
+    if (err) {
+        console.log(err)
+        return
+    }
+    console.log(`SERVER LIVE : http://localhost:${PORT}`)
+})

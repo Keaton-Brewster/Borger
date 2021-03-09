@@ -17,6 +17,22 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+    const addBorgerButton = document.getElementById('add-borger');
+
+    addBorgerButton.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const borgerName = document.getElementById('borger-to-add').value.trim();
+        console.log(borgerName)
+
+        fetch(`/api/add-borger/${borgerName}`, {
+            method: 'POST'
+        }).then(() => {
+            location.reload();
+        })
+    })
+
+
 
 
 })

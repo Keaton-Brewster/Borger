@@ -22,7 +22,19 @@ route.put('/api/consume/:id', (req, res) => {
         if (result.affectedRows === 0) {
             res.status(404).end();
         }
-        res.status(200).end();
+        res.status(202).end();
+    })
+})
+
+route.post('/api/add-borger/:borger', (req, res) => {
+    let borgerName = req.params.borger;
+    console.log(borgerName)
+
+    borger.addBurger(borgerName, (result) => {
+        if (result.affectedRows === 0) {
+            res.status(500).end();
+        }
+        res.status(201).end();
     })
 })
 

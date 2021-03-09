@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM ready');
+    console.info('DOM ready');
 
     const consumeButtons = document.querySelectorAll('.consume');
 
@@ -23,10 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const borgerName = document.getElementById('borger-to-add').value.trim();
-        console.log(borgerName)
 
-        fetch(`/api/add-borger/${borgerName}`, {
-            method: 'POST'
+        fetch(`/api/add-borger`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                borger: borgerName
+            })
         }).then(() => {
             location.reload();
         })

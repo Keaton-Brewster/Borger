@@ -26,9 +26,8 @@ route.put('/api/consume/:id', (req, res) => {
     })
 })
 
-route.post('/api/add-borger/:borger', (req, res) => {
-    let borgerName = req.params.borger;
-    console.log(borgerName)
+route.post('/api/add-borger', (req, res) => {
+    let borgerName = req.body.borger;
 
     borger.addBurger(borgerName, (result) => {
         if (result.affectedRows === 0) {

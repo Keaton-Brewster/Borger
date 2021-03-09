@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.info('DOM ready');
 
     const consumeButtons = document.querySelectorAll('.consume');
 

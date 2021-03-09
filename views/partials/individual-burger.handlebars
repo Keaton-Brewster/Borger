@@ -1,7 +1,10 @@
 <li>
     {{name}}
 
+    {{#if consumed}}
+    {{else}}
     <button class="consume" data-id="{{id}}">
-        {{#if consumed}}{{else}}C O N S U M E{{/if}}
+        C O N S U M E
     </button>
+    {{/if}}
 </li>

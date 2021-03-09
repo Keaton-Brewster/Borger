@@ -13,5 +13,17 @@ route.get('/', (req, res) => {
     })
 })
 
+route.put('/api/consume/:id', (req, res) => {
+    let id = req.params.id;
+
+    borger.updateBurger({
+        consumed: true
+    }, id, (result) => {
+        if (result.affectedRows === 0) {
+            res.status(404).end();
+        }
+        res.status(200).end();
+    })
+})
 
 module.exports = route;

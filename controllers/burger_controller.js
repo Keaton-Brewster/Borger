@@ -10,6 +10,8 @@ route.get('/', (req, res) => {
             burgers: burgers
         }
         res.render('index', data)
+    }, (error) => {
+        if (error) throw error
     })
 })
 
@@ -23,6 +25,8 @@ route.put('/api/consume/:id', (req, res) => {
             res.status(404).end();
         }
         res.status(202).end();
+    }, (error) => {
+        if (error) throw error
     })
 })
 
@@ -34,6 +38,8 @@ route.post('/api/add-borger', (req, res) => {
             res.status(500).end();
         }
         res.status(201).end();
+    }, (error) => {
+        if (error) throw error
     })
 })
 

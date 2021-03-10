@@ -17,19 +17,18 @@ const objToSql = (ob) => {
 };
 
 const orm = {
-    selectAll(table, cb) {
+    selectAll(table, cb, error) {
         let queryString = `SELECT * FROM ${table}`;
 
         conn.query(
             queryString,
             (err, result) => {
-                if (err) throw err;
-
+                error(err)
                 cb(result)
             }
         )
     },
-    insertOne(table, colValues, valsToInsert, cb) {
+    insertOne(table, colValues, valsToInsert, cb, error) {
         let queryString = `INSERT INTO ${table}`;
         queryString += ` (${colValues}) `;
         queryString += ` VALUES `;
@@ -38,12 +37,12 @@ const orm = {
         conn.query(
             queryString,
             (err, result) => {
-                if (err) throw err;
+                error(err)
                 cb(result)
             }
         )
     },
-    updateOne(table, objColValues, condition, cb) {
+    updateOne(table, objColValues, condition, cb, error) {
         let queryString = `UPDATE ${table}`;
 
         queryString += ' SET ';
@@ -54,8 +53,7 @@ const orm = {
         conn.query(
             queryString,
             (err, result) => {
-                if (err) throw err;
-
+                error(err)
                 cb(result)
             }
         )

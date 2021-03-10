@@ -1,21 +1,15 @@
 const orm = require('../config/orm');
 
 const burger = {
-    allBurgers(cb, error) {
-        orm.selectAll('burgers',
-            (res) => cb(res),
-            (err) => error(err))
+    allBurgers(cb) {
+        orm.selectAll('burgers', (err, res) => cb(err, res))
     },
-    addBurger(name, cb, error) {
-        orm.insertOne('burgers', `name, consumed`, `"${name}", false`,
-            (res) => cb(res),
-            (err) => error(err))
+    addBurger(name, cb) {
+        orm.insertOne('burgers', `name, consumed`, `"${name}", false`, (err, res) => cb(err, res))
     },
-    updateBurger(objColValues, id, cb, error) {
+    updateBurger(objColValues, id, cb) {
         condition = `id = ${id}`
-        orm.updateOne('burgers', objColValues, condition,
-            (res) => cb(res),
-            (err) => error(err))
+        orm.updateOne('burgers', objColValues, condition, (err, res) => cb(err,res))
     }
 }
 

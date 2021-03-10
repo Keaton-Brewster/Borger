@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const burgerName = document.getElementById('burger-to-add').value.trim();
 
+        if (!burgerName) {
+            alert("You cannot leave the name empty!")
+            return;
+        }
+
         fetch(`/api/add-borger`, {
             method: 'POST',
             headers: {
